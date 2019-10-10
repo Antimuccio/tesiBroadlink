@@ -1,0 +1,153 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            05:13:60:5b:8c:1c:b8:11:4b:b4:6c:68:30:7d:6f:8f
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, O=DigiCert Inc, OU=www.digicert.com, CN=GeoTrust RSA CA 2018
+        Validity
+            Not Before: May 28 00:00:00 2019 GMT
+            Not After : Jul 26 12:00:00 2021 GMT
+        Subject: C=CN, ST=Zhejiang Province, L=Hangzhou City, O=\xE6\x9D\xAD\xE5\xB7\x9E\xE5\x8D\x9A\xE8\x81\x94\xE6\x99\xBA\xE8\x83\xBD\xE7\xA7\x91\xE6\x8A\x80\xE8\x82\xA1\xE4\xBB\xBD\xE6\x9C\x89\xE9\x99\x90\xE5\x85\xAC\xE5\x8F\xB8, OU=IT, CN=*.ibroadlink.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:8c:c0:b1:97:6a:2c:55:a8:a1:a9:54:ce:2a:9f:
+                    d9:a6:15:dc:f1:87:a6:a3:65:fd:37:32:73:80:cf:
+                    e0:3c:c8:25:0b:68:28:e0:c4:e6:fd:42:6a:6e:7f:
+                    ab:2d:a8:8c:b9:e0:d5:30:77:59:aa:c1:3c:18:80:
+                    06:11:81:90:b0:6e:af:d3:81:3e:aa:77:39:d6:a3:
+                    ae:86:2e:5d:29:df:08:2f:5d:26:ff:9e:d5:73:7a:
+                    be:63:43:bb:c9:6a:b7:0a:ed:b5:35:91:3b:58:e4:
+                    67:16:58:85:ec:c9:80:05:6d:b9:5d:6c:c3:0e:3e:
+                    c2:e2:22:35:6b:db:11:4c:42:21:ea:ea:9e:9b:1a:
+                    fb:7a:d6:85:e0:0f:fd:cd:b8:27:9a:1e:ac:2f:e1:
+                    1f:a9:30:01:5e:a3:be:ef:b3:ba:65:fc:fd:bb:12:
+                    11:cb:9b:61:bf:0a:96:fe:f5:5f:72:ed:d6:4c:b8:
+                    92:fc:7a:31:f0:e4:8e:17:00:5e:42:3c:0c:5f:cd:
+                    03:60:aa:fe:ab:38:69:27:c3:76:3e:4b:1d:ab:44:
+                    0a:b3:d1:0f:e9:47:11:67:3d:e2:99:54:1f:64:28:
+                    ec:18:cf:21:e1:d1:9e:3f:54:e1:3d:0f:98:f7:33:
+                    f9:8e:a0:6e:b6:d2:59:48:c0:3e:9c:12:53:18:48:
+                    7d:bb
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Authority Key Identifier: 
+                keyid:90:58:FF:B0:9C:75:A8:51:54:77:B1:ED:F2:A3:43:16:38:9E:6C:C5
+
+            X509v3 Subject Key Identifier: 
+                B0:98:16:64:6D:F8:47:BF:93:87:66:35:EF:1D:04:12:BA:37:B0:6C
+            X509v3 Subject Alternative Name: 
+                DNS:*.ibroadlink.com, DNS:ibroadlink.com
+            X509v3 Key Usage: critical
+                Digital Signature, Key Encipherment
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 CRL Distribution Points: 
+
+                Full Name:
+                  URI:http://cdp.geotrust.com/GeoTrustRSACA2018.crl
+
+            X509v3 Certificate Policies: 
+                Policy: 2.16.840.1.114412.1.1
+                  CPS: https://www.digicert.com/CPS
+                Policy: 2.23.140.1.2.2
+
+            Authority Information Access: 
+                OCSP - URI:http://status.geotrust.com
+                CA Issuers - URI:http://cacerts.geotrust.com/GeoTrustRSACA2018.crt
+
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            CT Precertificate SCTs: 
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : A4:B9:09:90:B4:18:58:14:87:BB:13:A2:CC:67:70:0A:
+                                3C:35:98:04:F9:1B:DF:B8:E3:77:CD:0E:C8:0D:DC:10
+                    Timestamp : May 28 07:16:19.258 2019 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:46:02:21:00:B8:7A:02:EF:31:67:AE:36:9F:FB:53:
+                                06:F3:EF:65:27:16:E6:FA:9E:98:AF:9D:ED:0C:75:4A:
+                                3E:E8:7E:2A:12:02:21:00:84:EE:C2:3C:BA:8C:A9:5F:
+                                AF:7C:08:2A:53:65:48:22:D5:97:1B:C3:E4:3B:DB:51:
+                                7D:DE:22:D2:2E:11:99:DC
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 87:75:BF:E7:59:7C:F8:8C:43:99:5F:BD:F3:6E:FF:56:
+                                8D:47:56:36:FF:4A:B5:60:C1:B4:EA:FF:5E:A0:83:0F
+                    Timestamp : May 28 07:16:19.492 2019 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:45:02:20:41:62:4A:C5:6D:33:7A:7D:6E:8C:2D:D0:
+                                E2:6A:18:53:E0:DA:D1:F0:DB:DE:FB:17:CC:31:C4:F5:
+                                24:EC:0C:23:02:21:00:FC:18:25:04:D1:CB:7C:4D:C0:
+                                EF:6B:E2:85:8F:79:44:63:B6:7A:D3:87:EF:D7:82:99:
+                                9C:E7:E6:0E:0E:F8:AD
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 44:94:65:2E:B0:EE:CE:AF:C4:40:07:D8:A8:FE:28:C0:
+                                DA:E6:82:BE:D8:CB:31:B5:3F:D3:33:96:B5:B6:81:A8
+                    Timestamp : May 28 07:16:19.117 2019 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:45:02:20:20:C4:5A:EC:3E:7E:40:33:E5:2C:D4:83:
+                                6D:AB:A0:5B:37:CB:08:97:BB:18:91:40:C2:33:3C:AB:
+                                50:4D:E8:83:02:21:00:F9:F3:5C:BA:F0:AE:47:5A:96:
+                                B2:C6:E2:1F:48:47:C9:DF:7E:00:5B:E9:2A:BB:8A:45:
+                                C5:4A:86:9E:2A:FB:E6
+    Signature Algorithm: sha256WithRSAEncryption
+         14:9f:6c:b0:e0:6d:cc:ef:7d:ca:36:55:07:23:1b:b3:f1:17:
+         d8:24:db:3d:c5:fb:fc:04:17:19:35:82:af:8c:45:51:c6:e8:
+         7a:12:6d:69:cd:e9:fa:83:0b:0a:84:ac:0b:52:83:ab:c6:f3:
+         10:a8:2a:11:5b:b5:2e:1a:1f:c5:36:82:9a:d8:48:f5:f6:3c:
+         a5:9c:3c:19:ca:c8:45:7e:1b:c4:1d:b8:12:88:84:74:9b:a3:
+         26:e5:6a:7c:cf:74:d8:44:51:b0:b2:32:86:8b:82:dd:96:d1:
+         bb:7f:0c:5b:96:61:25:44:26:f8:35:48:14:45:c8:bc:fe:40:
+         c6:fb:23:86:a2:19:b6:a6:94:be:5e:3e:e1:0a:a3:be:0f:aa:
+         20:38:09:84:11:a0:6b:7f:e0:6e:b9:81:92:26:3a:1b:78:bb:
+         fa:86:63:a5:f1:65:3e:88:99:1b:45:e8:ff:76:a5:14:d7:e8:
+         75:d9:88:f3:ab:a1:40:a0:e2:d9:d4:b6:95:78:d6:70:f8:05:
+         ee:8f:91:47:ed:e2:41:05:d0:e0:40:ba:07:ed:0b:0b:d7:2b:
+         be:e7:83:9a:31:f0:6e:30:6f:d3:0e:1e:8f:c5:35:05:03:4f:
+         f6:51:60:e0:37:eb:65:f4:78:ed:45:cf:e7:a9:73:5b:60:61:
+         29:c1:5e:54
+-----BEGIN CERTIFICATE-----
+MIIGvDCCBaSgAwIBAgIQBRNgW4wcuBFLtGxoMH1vjzANBgkqhkiG9w0BAQsFADBe
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMR0wGwYDVQQDExRHZW9UcnVzdCBSU0EgQ0EgMjAxODAe
+Fw0xOTA1MjgwMDAwMDBaFw0yMTA3MjYxMjAwMDBaMIGeMQswCQYDVQQGEwJDTjEa
+MBgGA1UECBMRWmhlamlhbmcgUHJvdmluY2UxFjAUBgNVBAcTDUhhbmd6aG91IENp
+dHkxMzAxBgNVBAoMKuadreW3nuWNmuiBlOaZuuiDveenkeaKgOiCoeS7veaciemZ
+kOWFrOWPuDELMAkGA1UECxMCSVQxGTAXBgNVBAMMECouaWJyb2FkbGluay5jb20w
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCMwLGXaixVqKGpVM4qn9mm
+Fdzxh6ajZf03MnOAz+A8yCULaCjgxOb9Qmpuf6stqIy54NUwd1mqwTwYgAYRgZCw
+bq/TgT6qdznWo66GLl0p3wgvXSb/ntVzer5jQ7vJarcK7bU1kTtY5GcWWIXsyYAF
+bbldbMMOPsLiIjVr2xFMQiHq6p6bGvt61oXgD/3NuCeaHqwv4R+pMAFeo77vs7pl
+/P27EhHLm2G/Cpb+9V9y7dZMuJL8ejHw5I4XAF5CPAxfzQNgqv6rOGknw3Y+Sx2r
+RAqz0Q/pRxFnPeKZVB9kKOwYzyHh0Z4/VOE9D5j3M/mOoG620llIwD6cElMYSH27
+AgMBAAGjggMzMIIDLzAfBgNVHSMEGDAWgBSQWP+wnHWoUVR3se3yo0MWOJ5sxTAd
+BgNVHQ4EFgQUsJgWZG34R7+Th2Y17x0EEro3sGwwKwYDVR0RBCQwIoIQKi5pYnJv
+YWRsaW5rLmNvbYIOaWJyb2FkbGluay5jb20wDgYDVR0PAQH/BAQDAgWgMB0GA1Ud
+JQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjA+BgNVHR8ENzA1MDOgMaAvhi1odHRw
+Oi8vY2RwLmdlb3RydXN0LmNvbS9HZW9UcnVzdFJTQUNBMjAxOC5jcmwwTAYDVR0g
+BEUwQzA3BglghkgBhv1sAQEwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cuZGln
+aWNlcnQuY29tL0NQUzAIBgZngQwBAgIwdQYIKwYBBQUHAQEEaTBnMCYGCCsGAQUF
+BzABhhpodHRwOi8vc3RhdHVzLmdlb3RydXN0LmNvbTA9BggrBgEFBQcwAoYxaHR0
+cDovL2NhY2VydHMuZ2VvdHJ1c3QuY29tL0dlb1RydXN0UlNBQ0EyMDE4LmNydDAJ
+BgNVHRMEAjAAMIIBfwYKKwYBBAHWeQIEAgSCAW8EggFrAWkAdwCkuQmQtBhYFIe7
+E6LMZ3AKPDWYBPkb37jjd80OyA3cEAAAAWr9TAa6AAAEAwBIMEYCIQC4egLvMWeu
+Np/7Uwbz72UnFub6npivne0MdUo+6H4qEgIhAITuwjy6jKlfr3wIKlNlSCLVlxvD
+5DvbUX3eItIuEZncAHYAh3W/51l8+IxDmV+9827/Vo1HVjb/SrVgwbTq/16ggw8A
+AAFq/UwHpAAABAMARzBFAiBBYkrFbTN6fW6MLdDiahhT4NrR8Nve+xfMMcT1JOwM
+IwIhAPwYJQTRy3xNwO9r4oWPeURjtnrTh+/Xgpmc5+YODvitAHYARJRlLrDuzq/E
+QAfYqP4owNrmgr7YyzG1P9MzlrW2gagAAAFq/UwGLQAABAMARzBFAiAgxFrsPn5A
+M+Us1INtq6BbN8sIl7sYkUDCMzyrUE3ogwIhAPnzXLrwrkdalrLG4h9IR8nffgBb
+6Sq7ikXFSoaeKvvmMA0GCSqGSIb3DQEBCwUAA4IBAQAUn2yw4G3M733KNlUHIxuz
+8RfYJNs9xfv8BBcZNYKvjEVRxuh6Em1pzen6gwsKhKwLUoOrxvMQqCoRW7UuGh/F
+NoKa2Ej19jylnDwZyshFfhvEHbgSiIR0m6Mm5Wp8z3TYRFGwsjKGi4LdltG7fwxb
+lmElRCb4NUgURci8/kDG+yOGohm2ppS+Xj7hCqO+D6ogOAmEEaBrf+BuuYGSJjob
+eLv6hmOl8WU+iJkbRej/dqUU1+h12Yjzq6FAoOLZ1LaVeNZw+AXuj5FH7eJBBdDg
+QLoH7QsL1yu+54OaMfBuMG/TDh6PxTUFA0/2UWDgN+tl9HjtRc/nqXNbYGEpwV5U
+-----END CERTIFICATE-----
