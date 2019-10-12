@@ -21,16 +21,15 @@ campioni=originale.value-originale.value[0]
 confrontov=confronto.value-confronto.value[0]
 indici=mdates.date2num(confronto.index)
 indici=(indici-indici[0])*86400
-for i in range(1,ore.size-1):
-    if campioni[i]>campioni[i-1] and campioni[i]-campioni[i+1]<0.0025:
-        fmax.append(campioni[i])
-        maxI.append(ore[i])
-    if campioni[i]<campioni[i+1] and campioni[i]-campioni[i-1]<0.0025:
+for i in range(0,campioni.size-2):
+    if campioni[i+1]-campioni[i]>=0.008 and campioni[i+2]-campioni[i+1]==0:
+        fmax.append(campioni[i+1])
+        maxI.append(ore[i+1])
         fmin.append(campioni[i])
         minI.append(ore[i])
 
-csMax=CubicSpline(maxI, fmax,bc_type='clamped')
-csMin=CubicSpline(minI, fmin,bc_type='clamped')
+csMax=CubicSpline(maxI, fmax,bc_type='natural')
+csMin=CubicSpline(minI, fmin,bc_type='natural')
 x=np.linspace(ore[0],ore[-1], len(ore))
 plt.suptitle('Energia')
 plt.plot(x,confrontov,label='altro',color='magenta')
