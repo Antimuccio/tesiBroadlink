@@ -9,7 +9,7 @@ import matplotlib.dates as mdates
 import datetime
 from scipy import integrate
 
-originale=pd.read_csv("74.csv" ,sep = ",",dayfirst=True,parse_dates=['data'], index_col='data')
+originale=pd.read_csv("2.csv" ,sep = ",",dayfirst=True,parse_dates=['data'], index_col='data')
 lavatrice =pd.read_csv('lavatrice.csv',sep=' ',parse_dates=['timestamp'], index_col='timestamp')
 confronto = pd.read_csv('frigo.csv',sep=' ',parse_dates=['timestamp'], index_col='timestamp')
 confronto.index = pd.to_datetime(confronto.index, unit='s')
@@ -32,7 +32,7 @@ indiciOtt=[]
 seguiO=False
 for i in range(0,len(ore)):
  indiciOtt.append(ore[i])
- if (confrontov[i]+confrontoL[i]>500 and confrontov[i]+confrontoL[i]<confrontov[i+1]+confrontoL[i+1] and campioni[i+1]-campioni[i]>20):
+ if (confrontov[i]+confrontoL[i]>500 and confrontoL[i-1]-confrontoL[i]>200 and campioni[i+1]-campioni[i]>20):
       ottimizzazione.append(campioni[i+1])
       seguiO=True
  elif seguiO:
@@ -56,12 +56,12 @@ max3=0
 max4=0
 numero2=0
 for i in range(0,len(ore)):
- max1=max(confrontov[i]+ottimizzazione[i]+confrontoL[i],max1)
- max2=max(confrontov[i]+campioni[i]+confrontoL[i],max2)
  if(confrontov[i]+ottimizzazione[i]+confrontoL[i]>confrontov[i]+campioni[i]+confrontoL[i]):
    numero1+=1
+   max1=max(confrontov[i]+ottimizzazione[i]+confrontoL[i],max1)
  if(confrontov[i]+ottimizzazione[i]+confrontoL[i]<confrontov[i]+campioni[i]+confrontoL[i]):
    numero2+=1
+   max2=max(confrontov[i]+campioni[i]+confrontoL[i],max2)
 print(numero1,numero2,max1,max2)
 for i in range(0,len(ore)-1):
   integrazione1.append(integrazione1[-1]+ottimizzazione[i]*120/3600000)
@@ -82,10 +82,7 @@ for i in range(0,ore.size-2):
 csMax=CubicSpline(maxI,fmax,bc_type='natural')
 csMin=CubicSpline(minI,fmin,bc_type='natural')
 x=np.linspace(ore[0],ore[-1], 2*ore.size)
-plt.suptitle('Energia')
-plt.plot(ore,campioni,color='black',label='originale',linestyle='--',marker='o')
-plt.plot(indiciOtt,ottimizzazione,marker='o')
-plt.show()
+plt.suptitle('Ottimizzazione')
 ax1=plt.subplot(211)
 ax2=plt.subplot(212)
 ax1.plot(ore,campioni,color='black',label='originale',linestyle='--',marker='o')
