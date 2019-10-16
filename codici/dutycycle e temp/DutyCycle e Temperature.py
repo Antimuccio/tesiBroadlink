@@ -37,7 +37,7 @@ for j in range (0,df2.size):
 plt.bar(df2.index,listaore, align='center', alpha=0.5,label='duty cycle %')
 plt.xlabel('giorno')
 plt.ylabel('valore medio')
-plt.title('Legame dutcycle medio e temperatura')
+plt.title('Legame tempo di funzionamento medio e temperatura')
 plt.plot(dfT.index,dfT.value,marker='*',label='temperatura°C')
 plt.legend(loc='upper left')
 plt.show()

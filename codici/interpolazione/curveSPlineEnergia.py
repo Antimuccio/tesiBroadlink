@@ -1,7 +1,6 @@
-from scipy.interpolate import interp1d
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.interpolate import CubicSpline
+from scipy import interpolate
 import pandas as pd
 from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
@@ -16,15 +15,16 @@ maxI=[]
 ore=originale.index
 campioni=originale.value
 ore=mdates.date2num(ore)
-for i in range(0,campioni.size-2):
-    if campioni[i+1]-campioni[i]>=0.008 and campioni[i+2]-campioni[i+1]==0:
-        fmax.append(campioni[i+1])
-        maxI.append(ore[i+1])
+for i in range(1,campioni.size-1):
+    if campioni[i+1]-campioni[i]<0.001 and campioni[i]-campioni[i-1]>campioni[i+1]-campioni[i]:
+        fmax.append(campioni[i])
+        maxI.append(ore[i])
+    if campioni[i]-campioni[i-1]<0.001 and campioni[i]-campioni[i-1]<campioni[i+1]-campioni[i] :
         fmin.append(campioni[i])
         minI.append(ore[i])
 
-csMax=CubicSpline(maxI, fmax,bc_type='natural')
-csMin=CubicSpline(minI, fmin,bc_type='natural')
+csMax=interpolate.PchipInterpolator(maxI, fmax)
+csMin=interpolate.PchipInterpolator(minI, fmin)
 x=np.linspace(ore[0],ore[-1], 10*ore.size)
 giorni= mdates.num2date(x)
 maxI=mdates.num2date(maxI)
@@ -45,10 +45,7 @@ ax2.set_ylabel('Consumi')
 ax1.legend()
 ax2.legend()
 plt.show()
-minimo=csMax(x[0])-csMin(x[0])
-for i in range(1,len(x)):
-    if  csMax(x[i])-csMin(x[i])<minimo:
-        minimo=csMax(x[i])-csMin(x[i])
+
 a0 = csMax.c.item(3,49)
 b0 = csMax.c.item(2,49)
 c0 = csMax.c.item(1,49)
