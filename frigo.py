@@ -4,10 +4,9 @@ import sys, string
 import http.client
 import tkinter as tk
 import tkinter.ttk as ttk
-import datetime
-###apikey="97be21a66f75f38ee46e35f083833b71"
-###nodeid= 395229
-###conn.request("GET", "https://emoncms.org/input/post.json?apikey="+apikey+"&node="+str(nodeid)+"&csv="+valore)
+from datetime import datetime
+import numpy as np
+
 def stato():
      if(devices[0].check_power()):
        var.set("Stato Attuale Dispositivo: "+"Acceso")
@@ -18,10 +17,24 @@ def start():
  global idOp
  valore=None
  B1.config(state='disabled')
- timer1=timerI-datetime.datetime.now().hour;
- timer2=timerF-datetime.datetime.now().hour;
- timer3=timerF-timerI;
- if (timer3>0 and timer1<=0) or (timer3<0 and timer2<0 and timer1<=0) or (timer3<0 and timer2>0 and timer1>=0):
+ ora=datetime.now().strftime("%H:%M")
+ ora=datetime.strptime(ora,"%H:%M")
+ timer1=(timerI-ora)
+ if(timer1.days<0):
+  timer1=(timer1).seconds*(timer1).days
+ else:
+  timer1=(timer1).seconds
+ timer2=(timerF-ora)
+ if(timer2.days<0):
+  timer2=(timer2).seconds*(timer2).days
+ else:
+  timer2=(timer2).seconds
+ timer3=timerF-timerI
+ if(timer3.days<0):
+  timer3=(timer3).seconds*(timer3).days
+ else:
+  timer3=(timer3).seconds
+ if (timer3>0 and timer1<=0 and timer2>0) or (timer3<0 and timer2<0 and timer1<=0) or (timer3<0 and timer2>0 and timer1>=0) or timer3==0:
      while(True):
       try:
          if not devices[0].check_power():
@@ -35,12 +48,12 @@ def start():
             print("Errore lettura stato")
             time.sleep(5)
      conn.request("GET", "http://localhost:8289/emoncms/input/post?node=2&fulljson={%22Frigo%22:"+str(valore)+"}&apikey=2537acbf42ca48a2e186dbb02b4f1b3e")
-     print(datetime.datetime.now(),valore,conn.getresponse().read())
+     print(datetime.now(),valore,conn.getresponse().read())
      conn.close()
      var1.set(valore)
      indice=indice+1
-     var2.set(datetime.datetime.now().strftime("%H:%M"))
-     tk.Label(page2,text=str(valore)+" "+str(datetime.datetime.now().strftime("%D %H:%M")),relief="flat").grid(row=indice%10,column=1)
+     var2.set(datetime.now().strftime("%H:%M"))
+     tk.Label(page2,text=str(valore)+" "+str(datetime.now().strftime("%D %H:%M")),relief="flat").grid(row=indice%10,column=1)
      idOp=finestra.after(120000,start)
  else:
      stop()
@@ -49,24 +62,23 @@ def start():
 def stop():
     B1.config(state="active")
     devices[0].set_power(False);
-    print("Spento"+str(datetime.datetime.now()))
+    print("Spento"+str(datetime.now()))
     conn.request("GET", "http://localhost:8289/emoncms/input/post?node=2&fulljson={%22Frigo%22:"+"0"+"}&apikey=2537acbf42ca48a2e186dbb02b4f1b3e")
     conn.close()
     stato()
     var1.set("0")
     tk.Label(page2,textvar=var1,relief="flat").grid(row=indice%10,column=1)
-    var2.set(datetime.datetime.now().strftime("%H:%M"))
+    var2.set(datetime.now().strftime("%H:%M"))
     try:
      finestra.after_cancel(idOp)
     except:
          print("nulla da cancellare")
     if is_checked.get():
-     if(timerI<=datetime.datetime.now().hour):
-      differenza=(-datetime.datetime.now().hour+timerI+24)*3600000-datetime.datetime.now().minute*60000
-     else:
-      differenza=(-datetime.datetime.now().hour+timerI)*3600000-datetime.datetime.now().minute*60000
-     print(round(differenza/3600000,2))
-     finestra.after(differenza,start)
+     ora=datetime.now().strftime("%H:%M")
+     ora=datetime.strptime(ora,"%H:%M")
+     differenza=(timerI-ora).seconds
+     print(differenza)
+     finestra.after(differenza*1000,start)
 def aggiungisveglia():
     checkBoxName.set(mystring1.get()+"-"+mystring2.get())
     checkbox=tk.Checkbutton(page1,textvar=checkBoxName,command=settimer,onvalue=1,offvalue=0,variable=is_checked)
@@ -76,14 +88,20 @@ def settimer():
     global timerI
     global timerF
     if(is_checked.get()):
-          appoggio=checkBoxName.get()
-          [a,b]=appoggio.split("-",1)
-          timerI=int(a)
-          timerF=int(b)
+      appoggio=checkBoxName.get()
+      [a,b]=appoggio.split("-",1)
+      try:
+          timerI=datetime.strptime(a,"%H:%M")
+      except:
+          timerI=datetime.strptime("00:00","%H:%M")
+
+      try:
+          timerF=datetime.strptime(b,"%H:%M")
+      except:
+          timerF=datetime.strptime("00:00","%H:%M")
     else:
-     timerI=-1;
-     timerF=25;
-      
+     timerI=datetime.strptime("00:00","%H:%M")
+     timerF=datetime.strptime("00:00","%H:%M")
 
 
 ##grafica##
@@ -132,9 +150,9 @@ while True:
  except:
      print("Errore WebServer o SP")
      time.sleep(5)
-timerI=-1
+timerI=datetime.strptime('00:00',"%H:%M")
 indice=0
-timerF=25
+timerF=datetime.strptime('00:00',"%H:%M")
 stato()
 if(devices[0].check_power()):
           start();
