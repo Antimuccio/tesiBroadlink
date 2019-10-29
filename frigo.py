@@ -5,7 +5,6 @@ import http.client
 import tkinter as tk
 import tkinter.ttk as ttk
 from datetime import datetime
-import numpy as np
 
 def stato():
      if(devices[0].check_power()):
